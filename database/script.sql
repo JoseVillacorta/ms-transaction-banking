@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS transactions (
+    id BIGSERIAL PRIMARY KEY,
+    source_account_id BIGINT,
+    destination_account_id BIGINT,
+    amount DECIMAL(15,2) NOT NULL,
+    transaction_type VARCHAR(20) NOT NULL, -- TRANSFER, DEPOSIT, WITHDRAWAL
+    status VARCHAR(20) DEFAULT 'PENDING', -- PENDING, COMPLETED, FAILED
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
